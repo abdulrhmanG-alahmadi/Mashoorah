@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "e018b690-b306-4bc5-8b14-8583c7d10472",
+		"name": "SaudiChatGPTHackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11658674"
+	},
+	"item": [
+		{
+			"name": "completions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{Customer_ID}}"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{X_API_Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model\": \"text-davinci-003\",\n    \"prompt\": \"Say this is a test\",\n    \"max_tokens\": 7,\n    \"temperature\": 0\n}"
+				},
+				"url": {
+					"raw": "https://experimental.willow.vectara.io/v1/completions",
+					"protocol": "https",
+					"host": [
+						"experimental",
+						"willow",
+						"vectara",
+						"io"
+					],
+					"path": [
+						"v1",
+						"completions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat/completions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{Customer_ID}}"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{X_API_Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://experimental.willow.vectara.io/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"experimental",
+						"willow",
+						"vectara",
+						"io"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "audio/transcriptions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "customer-id",
+						"value": "{{Customer_ID}}"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{X_API_Key}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "model",
+							"value": "whisper-1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://experimental.willow.vectara.io/v1/audio/transcriptions",
+					"protocol": "https",
+					"host": [
+						"experimental",
+						"willow",
+						"vectara",
+						"io"
+					],
+					"path": [
+						"v1",
+						"audio",
+						"transcriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "audio/translations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "customer-id",
+						"value": "{{Customer_ID}}"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{X_API_Key}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/tallat/Downloads/Essay-Writing-in-Swedish.mp3"
+						},
+						{
+							"key": "model",
+							"value": "whisper-1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://experimental.willow.vectara.io/v1/audio/translations",
+					"protocol": "https",
+					"host": [
+						"experimental",
+						"willow",
+						"vectara",
+						"io"
+					],
+					"path": [
+						"v1",
+						"audio",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Customer_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "X_API_Key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
